@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
-const Studentroute = require('./Routes/Student routes');
-require ("./model/dbConnect")
+const Studentroute = require('./Routes/studentRoute');
+
 require ("dotenv").config();
 
 
