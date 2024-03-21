@@ -1,15 +1,20 @@
 const JWT = require("jsonwebtoken");
 const createError = require("http-errors");
 const User = require("../model/regModel");
+const {signAccessToken} = require('../helpers/jwtHelper');
 
 module.exports = {
+
+    // add user
+
+
     signAccessToken:(UserId) => {
         return new Promise((resolve, reject) => {
             const payload = {UserId}
             const secret = process.env.ACCESS_TOKEN_SECRET;
             const options = {
                 expiresIn: '10m',
-                issuer: 'EddTechnologies.com',
+                issuer: 'freecasanova.com',
                 audience: UserId.toString(),
             }
             JWT.sign(payload, secret, options, (error, token) => {
